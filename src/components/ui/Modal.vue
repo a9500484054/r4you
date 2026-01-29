@@ -54,7 +54,7 @@
 <script setup lang="ts">
 import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import Button from './Button.vue'
-import CloseIcon from '@/components/ui/icon/СloseIcon.vue'
+import CloseIcon from '@/components/ui/icon/CloseIcon.vue'
 
 // Пропсы
 interface Props {

@@ -1,0 +1,328 @@
+/* ==========================================================================
+   CSS Reset и базовые стили
+   ========================================================================== */
+
+/* 1. Используем более интуитивную модель размера box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Убираем отступы по умолчанию */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Устанавливаем базовые размеры шрифтов и высоту линии */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* 4. Убираем стандартный стиль для списков */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 5. Убираем подчеркивание у ссылок */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 6. Убираем стандартный стиль для кнопок */
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* 7. Убираем обводку у элементов в фокусе для мыши */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 8. Убираем стандартные стрелки у input type number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 9. Настройка для медиа-элементов */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 10. Наследование шрифтов для форм */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 11. Предотвращение переполнения текста */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   CSS Custom Properties (переменные)
+   ========================================================================== */
+
+/* common.css - общие стили для всех компонентов */
+:root {
+  /* Цветовая палитра */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-secondary: #05263F;
+  --color-secondary-hover: rgba(75, 85, 99, 0.928);
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+
+  /* Текст */
+  --text-primary: #111827;
+  --color-secondary: #05263F;
+  --text-tertiary: #9ca3af;
+  --text-white: #ffffff;
+  --text-outline: #77777C;
+
+  /* Фоны */
+  --bg-white: #ffffff;
+  --bg-gray-50: #F5F5F5;
+  --bg-gray-100: #F2F1F6;
+  --bg-gray-200: #e5e7eb;
+
+  /* Границы */
+  --border-default: #d1d5db;
+  --border-focus: #3b82f6;
+  --border-error: #ef4444;
+
+  /* Радиусы */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  /* Тени */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Анимации */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Типографика */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', monospace;
+
+}
+
+/* Общие утилитарные классы */
+.u-transition {
+  transition: all var(--transition-base);
+}
+
+.u-disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.u-focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.u-hidden {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Компонент-обертка для всех элементов */
+.component-wrapper {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+}
+
+
+
+/* ==========================================================================
+   Базовые стили документа
+   ========================================================================== */
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Контейнер для контента */
+.container {
+  width: 100%;
+  max-width: var(--max-width-7xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* ==========================================================================
+   Типографика
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-gray-800);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-md);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Ссылки */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* Списки */
+ul:not([class]),
+ol:not([class]) {
+  list-style-position: inside;
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-md);
+}
+
+ul:not([class]) {
+  list-style-type: disc;
+}
+
+ol:not([class]) {
+  list-style-type: decimal;
+}
+
+li:not([class]) {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Цитаты */
+blockquote {
+  border-left: 4px solid var(--color-gray-200);
+  padding-left: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  font-style: italic;
+  color: var(--color-gray-600);
+}
+
+/* Код */
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-sm);
+  color: var(--color-gray-800);
+}
+
+pre {
+  font-family: var(--font-family-mono);
+  padding: var(--spacing-md);
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+
+.no-icon-default .dp__input_wrap svg {
+  display: none;
+}
+.no-icon-default .dp__input {
+  padding-left: 18px !important
+}
+
+.dp__input {
+  background-color: #f5f5f5 !important;
+  border: none !important;
+  border-radius: 8px;
+}
+
+

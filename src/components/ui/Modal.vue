@@ -276,7 +276,7 @@ onUnmounted(() => {
   flex: 1;
   overflow-y: auto;
   max-height: calc(100vh - 200px);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .modal-footer {

@@ -338,6 +338,9 @@ onMounted(() => {
   display: flex;
   gap: 16px;
   margin-bottom: 8px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .date-group {
